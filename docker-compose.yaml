@@ -5,6 +5,13 @@ services:
     image: apache/spark:3.5.1
     container_name: spark-master
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+
+    healthcheck:
+      test: ["CMD-SHELL","curl -fsS http:localhost:8080>/dev/null || exit 1"]
+      interval : 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10
     ports:
       - "7077:7077"
       - "8080:8080"
@@ -44,7 +51,8 @@ services:
     image: local-pyspark-351:latest
     container_name: jupyter
     depends_on:
-      - {spark-master : {condition : service_healthy}}
+      spark-master: 
+        condition : service_healthy
     ports:
       - "8888:8888"
       - "4041:4040"
