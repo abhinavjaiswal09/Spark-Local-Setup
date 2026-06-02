@@ -1,0 +1,83 @@
+docker logs spark-master
+ERROR StatusLogger Could not determine local host name
+ java.net.UnknownHostException: 7af5001c93b2: 7af5001c93b2: Temporary failure in name resolution
+        at java.base/java.net.InetAddress.getLocalHost(Unknown Source)
+        at org.apache.logging.log4j.core.util.NetUtils.getLocalHostname(NetUtils.java:56)      
+        at org.apache.logging.log4j.core.LoggerContext.lambda$setConfiguration$0(LoggerContext.java:615)
+        at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(Unknown Source)    
+        at org.apache.logging.log4j.core.LoggerContext.setConfiguration(LoggerContext.java:615)        at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:694)     
+        at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:711)     
+        at org.apache.logging.log4j.core.LoggerContext.start(LoggerContext.java:253)
+        at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:245)
+        at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+        at org.apache.logging.log4j.LogManager.getContext(LogManager.java:176)
+        at org.apache.logging.log4j.LogManager.getLogger(LogManager.java:666)
+        at org.apache.logging.log4j.LogManager.getRootLogger(LogManager.java:700)
+        at org.apache.spark.internal.Logging.initializeLogging(Logging.scala:129)
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary(Logging.scala:114)       
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary$(Logging.scala:108)      
+        at org.apache.spark.deploy.master.Master$.initializeLogIfNecessary(Master.scala:1219)  
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary(Logging.scala:105)       
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary$(Logging.scala:104)      
+        at org.apache.spark.deploy.master.Master$.initializeLogIfNecessary(Master.scala:1219)  
+        at org.apache.spark.internal.Logging.log(Logging.scala:52)
+        at org.apache.spark.internal.Logging.log$(Logging.scala:50)
+        at org.apache.spark.deploy.master.Master$.log(Master.scala:1219)
+        at org.apache.spark.deploy.master.Master$.main(Master.scala:1226)
+        at org.apache.spark.deploy.master.Master.main(Master.scala)
+Caused by: java.net.UnknownHostException: 7af5001c93b2: Temporary failure in name resolution   
+        at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+        at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(Unknown Source)        at java.base/java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+        at java.base/java.net.InetAddress$NameServiceAddresses.get(Unknown Source)
+        at java.base/java.net.InetAddress.getAllByName0(Unknown Source)
+        ... 25 more
+ERROR StatusConsoleListener Could not determine local host name
+ java.net.UnknownHostException: 7af5001c93b2: 7af5001c93b2: Temporary failure in name resolution
+        at java.base/java.net.InetAddress.getLocalHost(Unknown Source)
+        at org.apache.logging.log4j.core.util.NetUtils.getLocalHostname(NetUtils.java:56)      
+        at org.apache.logging.log4j.core.LoggerContext.lambda$setConfiguration$0(LoggerContext.java:615)
+        at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(Unknown Source)    
+        at org.apache.logging.log4j.core.LoggerContext.setConfiguration(LoggerContext.java:615)        at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:694)     
+        at org.apache.logging.log4j.core.LoggerContext.setConfigLocation(LoggerContext.java:679)
+        at org.apache.spark.internal.Logging.initializeLogging(Logging.scala:139)
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary(Logging.scala:114)       
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary$(Logging.scala:108)      
+        at org.apache.spark.deploy.master.Master$.initializeLogIfNecessary(Master.scala:1219)  
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary(Logging.scala:105)       
+        at org.apache.spark.internal.Logging.initializeLogIfNecessary$(Logging.scala:104)      
+        at org.apache.spark.deploy.master.Master$.initializeLogIfNecessary(Master.scala:1219)  
+        at org.apache.spark.internal.Logging.log(Logging.scala:52)
+        at org.apache.spark.internal.Logging.log$(Logging.scala:50)
+        at org.apache.spark.deploy.master.Master$.log(Master.scala:1219)
+        at org.apache.spark.deploy.master.Master$.main(Master.scala:1226)
+        at org.apache.spark.deploy.master.Master.main(Master.scala)
+Caused by: java.net.UnknownHostException: 7af5001c93b2: Temporary failure in name resolution   
+        at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+        at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(Unknown Source)        at java.base/java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+        at java.base/java.net.InetAddress$NameServiceAddresses.get(Unknown Source)
+        at java.base/java.net.InetAddress.getAllByName0(Unknown Source)
+        ... 19 more
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/06/02 18:35:59 INFO Master: Started daemon with process name: 1@localhost
+26/06/02 18:35:59 INFO SignalUtils: Registering signal handler for TERM
+26/06/02 18:35:59 INFO SignalUtils: Registering signal handler for HUP
+26/06/02 18:35:59 INFO SignalUtils: Registering signal handler for INT
+26/06/02 18:36:00 ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[main,5,main]
+java.net.UnknownHostException: 7af5001c93b2: 7af5001c93b2: Temporary failure in name resolution        at java.base/java.net.InetAddress.getLocalHost(Unknown Source)
+        at org.apache.spark.util.Utils$.findLocalInetAddress(Utils.scala:957)
+        at org.apache.spark.util.Utils$.localIpAddress$lzycompute(Utils.scala:950)
+        at org.apache.spark.util.Utils$.localIpAddress(Utils.scala:950)
+        at org.apache.spark.util.Utils$.$anonfun$localHostName$1(Utils.scala:1015)
+        at scala.Option.getOrElse(Option.scala:189)
+        at org.apache.spark.util.Utils$.localHostName(Utils.scala:1015)
+        at org.apache.spark.deploy.master.MasterArguments.<init>(MasterArguments.scala:31)     
+        at org.apache.spark.deploy.master.Master$.main(Master.scala:1228)
+        at org.apache.spark.deploy.master.Master.main(Master.scala)
+Caused by: java.net.UnknownHostException: 7af5001c93b2: Temporary failure in name resolution   
+        at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+        at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(Unknown Source)        at java.base/java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+        at java.base/java.net.InetAddress$NameServiceAddresses.get(Unknown Source)
+        at java.base/java.net.InetAddress.getAllByName0(Unknown Source)
+        ... 10 more
+26/06/02 18:36:00 INFO ShutdownHookManager: Shutdown hook called
+PS C:\Users\vasu\Desktop\spark_setup\spark_local_setup> 
