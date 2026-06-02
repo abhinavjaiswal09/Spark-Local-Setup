@@ -7,8 +7,9 @@ services:
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
 
     healthcheck:
-      test: ["CMD-SHELL","curl -fsS http://localhost:8080>/dev/null || exit 1"]
+      test: ["CMD-SHELL","exec 3<>/dev/tcp/localhost/7077 && exit 0 || exit 1"]
       interval : 10s
+      condition : service_healthy
       timeout: 5s
       retries: 10
       start_period: 15s
